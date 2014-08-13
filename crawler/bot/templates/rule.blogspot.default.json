@@ -1,0 +1,28 @@
+[
+  {
+    "callback": "parse_start_url",
+    "cb_kwargs": {
+      "link": "//div[contains(@class,'blog-posts')]/descendant::h3[contains(@class,'post-title')]/a"
+    }
+  },
+  {
+    "callback": "parse_link",
+    "cb_kwargs": {
+      "headline": "//h3[contains(@class,'post-title')]/descendant-or-self::*/text()",
+      "category": "//div[contains(@class,'post-body')]/div[1]/div[1]/descendant::text()",
+      "date_of": "//div[@class='date-outer']/*[contains(@class, 'date-header')]/descendant::span/text()",
+      "image_urls": "//div[contains(@class,'post-body')]/descendant::img/@src",
+      "body_text": "//div[contains(@class,'post-body')]"
+    },
+    "link_extractor": {
+      "allow": "/(\\d+)/(\\d+)/([\\w-]+)\\.html"
+    },
+    "follow": false
+  },
+  {
+    "follow": true,
+    "link_extractor": {
+      "restrict_xpaths": "//div[@id=\"main\"]/descendant::div[@id=\"blog-pager\"]/span[@id=\"blog-pager-older-link\"]"
+    }
+  }
+]

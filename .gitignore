@@ -1,0 +1,5 @@
+.idea
+.DS_Store
+*.pyc
+parking.db
+parking.*.db
